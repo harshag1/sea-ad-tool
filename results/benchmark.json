@@ -1,0 +1,689 @@
+{
+  "source": {
+    "path": "/workspace/sea-ad-slice/data/SEAAD_MTG_RNAseq_final-nuclei.2026-06-22.h5ad",
+    "bytes": 32978570763,
+    "mtime_ns": 1792100913833870697
+  },
+  "shape": [
+    1178694,
+    36601
+  ],
+  "cache_policy": "Existing OS cache; no cache eviction. Not a cold benchmark.",
+  "measurements": {
+    "preview_p50_seconds": 0.05848351799977536,
+    "preview_p95_seconds": 0.06924759939997784,
+    "reference_backed_matrix_read_seconds": 11.926293582000653,
+    "scipy_filter_p50_seconds": 0.0050916290001623565,
+    "rust_filter_p50_seconds": 0.008341740000105347
+  },
+  "donors": 84,
+  "subclasses": [
+    [
+      "L2/3 IT",
+      289940
+    ],
+    [
+      "L4 IT",
+      147987
+    ],
+    [
+      "L5 IT",
+      105259
+    ],
+    [
+      "Oligodendrocyte",
+      90578
+    ],
+    [
+      "Vip",
+      89661
+    ],
+    [
+      "Pvalb",
+      78746
+    ],
+    [
+      "Astrocyte",
+      65450
+    ],
+    [
+      "Sst",
+      44695
+    ],
+    [
+      "L6 IT",
+      37902
+    ],
+    [
+      "Lamp5",
+      36966
+    ],
+    [
+      "Immune",
+      36686
+    ],
+    [
+      "OPC",
+      28907
+    ],
+    [
+      "L6 IT Car3",
+      20690
+    ],
+    [
+      "Lamp5 Lhx6",
+      18490
+    ],
+    [
+      "L5/6 NP",
+      17365
+    ],
+    [
+      "Sncg",
+      17296
+    ],
+    [
+      "L6 CT",
+      14094
+    ],
+    [
+      "L6b",
+      12289
+    ],
+    [
+      "Chandelier",
+      9464
+    ],
+    [
+      "Pax6",
+      7713
+    ],
+    [
+      "VLMC & Perivascular",
+      3932
+    ],
+    [
+      "Endothelial",
+      1872
+    ],
+    [
+      "L5 ET",
+      1813
+    ],
+    [
+      "Sst Chodl",
+      899
+    ]
+  ],
+  "filters": {
+    "Subclass": "Immune",
+    "Neurotypical reference": false
+  },
+  "query_plans": {
+    "count": [
+      [
+        3,
+        0,
+        0,
+        "SEARCH cells USING COVERING INDEX cohort_subclass_cover (Subclass=? AND Neurotypical reference=?)"
+      ]
+    ],
+    "donors": [
+      [
+        6,
+        0,
+        0,
+        "SEARCH cells USING COVERING INDEX cohort_subclass_cover (Subclass=? AND Neurotypical reference=?)"
+      ]
+    ]
+  },
+  "preview": {
+    "cells": 36686,
+    "group_by": "Donor ID",
+    "groups": [
+      {
+        "value": "H21.33.027",
+        "cells": 1036
+      },
+      {
+        "value": "H20.33.028",
+        "cells": 1015
+      },
+      {
+        "value": "H21.33.043",
+        "cells": 964
+      },
+      {
+        "value": "H21.33.010",
+        "cells": 907
+      },
+      {
+        "value": "H21.33.022",
+        "cells": 895
+      },
+      {
+        "value": "H21.33.025",
+        "cells": 892
+      },
+      {
+        "value": "H21.33.017",
+        "cells": 875
+      },
+      {
+        "value": "H21.33.001",
+        "cells": 822
+      },
+      {
+        "value": "H20.33.005",
+        "cells": 807
+      },
+      {
+        "value": "H20.33.001",
+        "cells": 789
+      },
+      {
+        "value": "H21.33.006",
+        "cells": 789
+      },
+      {
+        "value": "H21.33.018",
+        "cells": 755
+      },
+      {
+        "value": "H21.33.028",
+        "cells": 749
+      },
+      {
+        "value": "H20.33.043",
+        "cells": 736
+      },
+      {
+        "value": "H20.33.025",
+        "cells": 731
+      },
+      {
+        "value": "H19.33.004",
+        "cells": 721
+      },
+      {
+        "value": "H21.33.008",
+        "cells": 715
+      },
+      {
+        "value": "H20.33.004",
+        "cells": 677
+      },
+      {
+        "value": "H20.33.030",
+        "cells": 604
+      },
+      {
+        "value": "H21.33.033",
+        "cells": 587
+      },
+      {
+        "value": "H20.33.020",
+        "cells": 579
+      },
+      {
+        "value": "H21.33.005",
+        "cells": 541
+      },
+      {
+        "value": "H20.33.002",
+        "cells": 530
+      },
+      {
+        "value": "H20.33.018",
+        "cells": 528
+      },
+      {
+        "value": "H20.33.040",
+        "cells": 516
+      },
+      {
+        "value": "H20.33.017",
+        "cells": 515
+      },
+      {
+        "value": "H20.33.046",
+        "cells": 487
+      },
+      {
+        "value": "H20.33.012",
+        "cells": 480
+      },
+      {
+        "value": "H21.33.013",
+        "cells": 474
+      },
+      {
+        "value": "H21.33.011",
+        "cells": 466
+      },
+      {
+        "value": "H21.33.003",
+        "cells": 449
+      },
+      {
+        "value": "H21.33.041",
+        "cells": 445
+      },
+      {
+        "value": "H21.33.042",
+        "cells": 440
+      },
+      {
+        "value": "H21.33.015",
+        "cells": 434
+      },
+      {
+        "value": "H21.33.002",
+        "cells": 432
+      },
+      {
+        "value": "H21.33.035",
+        "cells": 408
+      },
+      {
+        "value": "H21.33.031",
+        "cells": 403
+      },
+      {
+        "value": "H21.33.044",
+        "cells": 396
+      },
+      {
+        "value": "H20.33.011",
+        "cells": 387
+      },
+      {
+        "value": "H21.33.023",
+        "cells": 387
+      },
+      {
+        "value": "H20.33.039",
+        "cells": 386
+      },
+      {
+        "value": "H21.33.047",
+        "cells": 382
+      },
+      {
+        "value": "H21.33.040",
+        "cells": 379
+      },
+      {
+        "value": "H21.33.007",
+        "cells": 352
+      },
+      {
+        "value": "H20.33.013",
+        "cells": 350
+      },
+      {
+        "value": "H20.33.015",
+        "cells": 348
+      },
+      {
+        "value": "H20.33.029",
+        "cells": 348
+      },
+      {
+        "value": "H20.33.031",
+        "cells": 345
+      },
+      {
+        "value": "H20.33.034",
+        "cells": 345
+      },
+      {
+        "value": "H20.33.019",
+        "cells": 339
+      },
+      {
+        "value": "H21.33.004",
+        "cells": 322
+      },
+      {
+        "value": "H21.33.032",
+        "cells": 320
+      },
+      {
+        "value": "H20.33.044",
+        "cells": 319
+      },
+      {
+        "value": "H21.33.036",
+        "cells": 316
+      },
+      {
+        "value": "H21.33.045",
+        "cells": 315
+      },
+      {
+        "value": "H20.33.038",
+        "cells": 299
+      },
+      {
+        "value": "H21.33.026",
+        "cells": 294
+      },
+      {
+        "value": "H21.33.037",
+        "cells": 271
+      },
+      {
+        "value": "H21.33.019",
+        "cells": 268
+      },
+      {
+        "value": "H20.33.016",
+        "cells": 264
+      },
+      {
+        "value": "H20.33.014",
+        "cells": 262
+      },
+      {
+        "value": "H20.33.041",
+        "cells": 261
+      },
+      {
+        "value": "H21.33.009",
+        "cells": 258
+      },
+      {
+        "value": "H21.33.046",
+        "cells": 248
+      },
+      {
+        "value": "H21.33.016",
+        "cells": 246
+      },
+      {
+        "value": "H21.33.030",
+        "cells": 246
+      },
+      {
+        "value": "H21.33.021",
+        "cells": 245
+      },
+      {
+        "value": "H20.33.045",
+        "cells": 243
+      },
+      {
+        "value": "H21.33.014",
+        "cells": 234
+      },
+      {
+        "value": "H20.33.027",
+        "cells": 214
+      },
+      {
+        "value": "H21.33.034",
+        "cells": 213
+      },
+      {
+        "value": "H20.33.032",
+        "cells": 210
+      },
+      {
+        "value": "H21.33.012",
+        "cells": 209
+      },
+      {
+        "value": "H21.33.039",
+        "cells": 200
+      },
+      {
+        "value": "H20.33.035",
+        "cells": 192
+      },
+      {
+        "value": "H20.33.008",
+        "cells": 186
+      },
+      {
+        "value": "H21.33.029",
+        "cells": 184
+      },
+      {
+        "value": "H20.33.033",
+        "cells": 168
+      },
+      {
+        "value": "H20.33.026",
+        "cells": 163
+      },
+      {
+        "value": "H21.33.038",
+        "cells": 159
+      },
+      {
+        "value": "H20.33.036",
+        "cells": 142
+      },
+      {
+        "value": "H20.33.024",
+        "cells": 117
+      },
+      {
+        "value": "H21.33.020",
+        "cells": 94
+      },
+      {
+        "value": "H20.33.037",
+        "cells": 67
+      }
+    ],
+    "query_seconds": 0.06313754200073163
+  },
+  "export": {
+    "tool_version": "0.1.2",
+    "source": {
+      "path": "/workspace/sea-ad-slice/data/SEAAD_MTG_RNAseq_final-nuclei.2026-06-22.h5ad",
+      "bytes": 32978570763,
+      "mtime_ns": 1792100913833870697
+    },
+    "remote_source": {
+      "url": "https://sea-ad-single-cell-profiling.s3.amazonaws.com/MTG/RNAseq/SEAAD_MTG_RNAseq_final-nuclei.2026-06-22.h5ad",
+      "bytes": 32978570763,
+      "etag": "\"4bee2271c0e1138b53e44ff1b9419129-3932\"",
+      "last_modified": "Tue, 23 Jun 2026 16:30:37 GMT",
+      "sha256": "e06000cb8fc83ebad88a52a0a7c772747c38fa92c97debcfe4f59de7cea60c79",
+      "download_seconds": 750.5450537499999,
+      "integrity": "Verified byte length, source ETag via conditional ranges and independently recomputed 8 MiB multipart MD5; local SHA256 recorded",
+      "etag_verified": true,
+      "etag_part_bytes": 8388608,
+      "checksum_verification_seconds": 239.19553418499981
+    },
+    "source_release": "SEAAD_MTG_RNAseq_final-nuclei.2026-06-22.h5ad",
+    "filters": {
+      "Subclass": "Immune",
+      "Neurotypical reference": false
+    },
+    "requested_genes": [
+      "APOE",
+      "TREM2",
+      "TYROBP",
+      "P2RY12",
+      "SST",
+      "MAPT"
+    ],
+    "source_gene_rows": [
+      32239,
+      11917,
+      31907,
+      7358,
+      7694,
+      29283
+    ],
+    "layer": "UMIs",
+    "limit": 5000,
+    "engine": "rust",
+    "split_seed": 42,
+    "donor_field": "Donor ID",
+    "qc_population": "source-defined; inspect release metadata",
+    "semantics": "Source values preserved without normalization; see source release documentation",
+    "donor_splits": {
+      "H20.33.030": "validation",
+      "H21.33.032": "validation",
+      "H21.33.025": "validation",
+      "H21.33.033": "test",
+      "H20.33.020": "test",
+      "H21.33.021": "test",
+      "H21.33.037": "train",
+      "H21.33.047": "train",
+      "H21.33.044": "train",
+      "H21.33.026": "train",
+      "H20.33.035": "train",
+      "H21.33.043": "train",
+      "H20.33.016": "train",
+      "H20.33.025": "train",
+      "H21.33.018": "train",
+      "H20.33.019": "train",
+      "H21.33.003": "train",
+      "H20.33.034": "train",
+      "H20.33.001": "train",
+      "H21.33.011": "train",
+      "H20.33.018": "train",
+      "H19.33.004": "train",
+      "H20.33.029": "train",
+      "H21.33.034": "train",
+      "H20.33.033": "train",
+      "H21.33.007": "train"
+    },
+    "recipe_id": "a1a1b180561adf0243fff1e9cfb63f757c92a149e60a757e62c5e0625c4d5463",
+    "output": "/workspace/sea-ad-slice/results/immune_panel.h5ad",
+    "n_obs": 5000,
+    "n_vars": 6,
+    "nnz": 10524,
+    "output_bytes": 4615032,
+    "elapsed_seconds": 47.75402933100031,
+    "output_bytes_at_creation": 4721909,
+    "file_size_measurement": "Final delivered file"
+  },
+  "normalized_all_gene_subset_verified": true,
+  "real_subset_verified": true,
+  "pseudobulk": {
+    "output": "/workspace/sea-ad-slice/results/immune_pseudobulk.h5ad",
+    "shape": [
+      84,
+      6
+    ],
+    "cells": 36686,
+    "seconds": 242.99161476000063
+  },
+  "pseudobulk_donor_verified": true,
+  "peak_rss_mb": 815.9140625,
+  "source_to_export_byte_ratio": 7145.902945635046,
+  "baseline_pseudobulk": {
+    "output": "/workspace/sea-ad-slice/results/immune_pseudobulk.h5ad",
+    "shape": [
+      84,
+      6
+    ],
+    "cells": 36686,
+    "seconds": 270.43646514600005
+  },
+  "optimized_pseudobulk_verified": true,
+  "baseline_export": {
+    "tool_version": "0.1.0",
+    "source": {
+      "path": "/workspace/sea-ad-slice/data/SEAAD_MTG_RNAseq_final-nuclei.2026-06-22.h5ad",
+      "bytes": 32978570763,
+      "mtime_ns": 1792100913833870697
+    },
+    "remote_source": {
+      "url": "https://sea-ad-single-cell-profiling.s3.amazonaws.com/MTG/RNAseq/SEAAD_MTG_RNAseq_final-nuclei.2026-06-22.h5ad",
+      "bytes": 32978570763,
+      "etag": "\"4bee2271c0e1138b53e44ff1b9419129-3932\"",
+      "last_modified": "Tue, 23 Jun 2026 16:30:37 GMT",
+      "sha256": "e06000cb8fc83ebad88a52a0a7c772747c38fa92c97debcfe4f59de7cea60c79",
+      "download_seconds": 750.5450537499999,
+      "integrity": "Verified byte length, source ETag via conditional ranges and independently recomputed 8 MiB multipart MD5; local SHA256 recorded",
+      "etag_verified": true,
+      "etag_part_bytes": 8388608,
+      "checksum_verification_seconds": 239.19553418499981
+    },
+    "source_release": "SEAAD_MTG_RNAseq_final-nuclei.2026-06-22.h5ad",
+    "filters": {
+      "Subclass": "Immune",
+      "Neurotypical reference": false
+    },
+    "requested_genes": [
+      "APOE",
+      "TREM2",
+      "TYROBP",
+      "P2RY12",
+      "SST",
+      "MAPT"
+    ],
+    "source_gene_rows": [
+      32239,
+      11917,
+      31907,
+      7358,
+      7694,
+      29283
+    ],
+    "layer": "UMIs",
+    "limit": 5000,
+    "engine": "rust",
+    "split_seed": 42,
+    "donor_field": "Donor ID",
+    "qc_population": "source-defined; inspect release metadata",
+    "semantics": "Source values preserved without normalization; see source release documentation",
+    "donor_splits": {
+      "H20.33.030": "validation",
+      "H21.33.032": "validation",
+      "H21.33.025": "validation",
+      "H21.33.033": "test",
+      "H20.33.020": "test",
+      "H21.33.021": "test",
+      "H21.33.037": "train",
+      "H21.33.047": "train",
+      "H21.33.044": "train",
+      "H21.33.026": "train",
+      "H20.33.035": "train",
+      "H21.33.043": "train",
+      "H20.33.016": "train",
+      "H20.33.025": "train",
+      "H21.33.018": "train",
+      "H20.33.019": "train",
+      "H21.33.003": "train",
+      "H20.33.034": "train",
+      "H20.33.001": "train",
+      "H21.33.011": "train",
+      "H20.33.018": "train",
+      "H19.33.004": "train",
+      "H20.33.029": "train",
+      "H21.33.034": "train",
+      "H20.33.033": "train",
+      "H21.33.007": "train"
+    },
+    "recipe_id": "6c6c76d9f109def8cec0529daa2d441835522f65384685d8beaf740327077f02",
+    "output": "/workspace/sea-ad-slice/results/immune_panel_baseline.h5ad",
+    "n_obs": 5000,
+    "n_vars": 6,
+    "nnz": 10524,
+    "output_bytes": 54214941,
+    "elapsed_seconds": 350.34620690300017,
+    "output_bytes_at_creation": 54214941,
+    "file_size_measurement": "Final delivered file"
+  },
+  "metadata_optimization": {
+    "source_barcode_levels": 1033197,
+    "exported_barcode_levels": 4996,
+    "all_metadata_values_identical": true,
+    "all_expression_values_identical": true,
+    "file_size_reduction_ratio": 11.747468056559521,
+    "observed_elapsed_ratio": 7.336474258007108,
+    "timing_caveat": "Before/after runs used different cache states; not a controlled algorithmic speedup estimate",
+    "optimization_process_peak_rss_mb": 329.828125,
+    "file_size_reduction_ratio_at_creation": 11.481572601250893
+  },
+  "optimized_metadata_verified": true
+}

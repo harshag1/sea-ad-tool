@@ -1,0 +1,24 @@
+{
+  "zip_crc_verified": true,
+  "zip_members": 33,
+  "zip_contents_match_checkout": true,
+  "files": {
+    "immune_panel.h5ad": {
+      "path": "/workspace/sea-ad-slice/results/immune_panel.h5ad",
+      "bytes": 4615032,
+      "sha256": "91d5686dae6a855d2ea6cdd4ec457474ce65fa8f04711e7ff4e6f136ef124fec"
+    },
+    "immune_pseudobulk.h5ad": {
+      "path": "/workspace/sea-ad-slice/results/immune_pseudobulk.h5ad",
+      "bytes": 42600,
+      "sha256": "b234816142a3a8030dde807b6b7444ea80e9868c7a8acb28227de92e4455b111"
+    },
+    "sea-ad-slice-code.zip": {
+      "path": "/workspace/sea-ad-slice/results/sea-ad-slice-code.zip",
+      "bytes": 51468,
+      "sha256": "eb27d30a58925962d38a37da8a6496f27e4355ab2728cfa273f1210a270bffa6"
+    }
+  },
+  "source_receipt_bytes": 32978570763,
+  "source_actual_bytes": 32978570763
+}

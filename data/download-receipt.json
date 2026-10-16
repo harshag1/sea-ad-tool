@@ -1,0 +1,12 @@
+{
+  "url": "https://sea-ad-single-cell-profiling.s3.amazonaws.com/MTG/RNAseq/SEAAD_MTG_RNAseq_final-nuclei.2026-06-22.h5ad",
+  "bytes": 32978570763,
+  "etag": "\"4bee2271c0e1138b53e44ff1b9419129-3932\"",
+  "last_modified": "Tue, 23 Jun 2026 16:30:37 GMT",
+  "sha256": "e06000cb8fc83ebad88a52a0a7c772747c38fa92c97debcfe4f59de7cea60c79",
+  "download_seconds": 750.5450537499999,
+  "integrity": "Verified byte length, source ETag via conditional ranges and independently recomputed 8 MiB multipart MD5; local SHA256 recorded",
+  "etag_verified": true,
+  "etag_part_bytes": 8388608,
+  "checksum_verification_seconds": 239.19553418499981
+}

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Cohort explorer</title>
+<style>
+:root{color-scheme:light;background:#f7fafb;color:#142933}:root[data-theme=dark]{color-scheme:dark;background:#071015;color:#edf7fb}body{margin:0;background:inherit}.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}#app-loading{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:inherit;background:#f7fafb}:root[data-theme=dark] #app-loading{background:#071015}#app-loading[hidden],[hidden]{display:none!important}.loading-square{width:26px;height:26px;border:2px solid currentColor;border-radius:3px;animation:square-turn 1.4s cubic-bezier(.65,0,.35,1) infinite}@keyframes square-turn{0%,15%{transform:rotate(0);opacity:.3}50%{transform:rotate(90deg);opacity:1}85%,100%{transform:rotate(180deg);opacity:.3}}@media(prefers-reduced-motion:reduce){.loading-square{animation:none}}
+</style>
+<script>document.documentElement.dataset.theme=window.__meshiaInitialTheme||new URLSearchParams(location.search).get('meshia_theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');addEventListener('message',e=>{if(e.source===parent&&e.data?.type==='meshia.theme'&&['light','dark'].includes(e.data.theme))document.documentElement.dataset.theme=e.data.theme})</script>
+<link rel="stylesheet" href="app.css?v=refined2">
+<script src="app.js?v=refined2" defer></script>
+</head>
+<body>
+<div id="app-loading" role="status"><span class="loading-square" aria-hidden="true"></span><span class="sr-only">Loading</span></div>
+<div class="shell" id="app-shell" inert>
+<header class="masthead"><h1>Cohort explorer</h1><button type="button" class="icon-button" id="info-button" aria-label="Data notes" data-tip="Data notes" aria-expanded="false" aria-controls="data-notes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v1"/></svg></button></header>
+<section id="data-notes" class="notes" hidden><h2>Data notes</h2><p>Samples and limited exports use the first matching cells in source order, not a random sample. “Immune” is a broad subclass, not necessarily pure microglia.</p><p>UMIs are raw counts. X is normalized source expression. Donor-disjoint splits use seed 42 and require multiple donors.</p><p id="source-counts"></p></section>
+<nav class="tabs" role="tablist" aria-label="Views"><button id="tab-cohort" role="tab" aria-controls="panel-cohort" aria-selected="true" tabindex="0">Cohort</button><button id="tab-expression" role="tab" aria-controls="panel-expression" aria-selected="false" tabindex="-1">Expression</button><button id="tab-exports" role="tab" aria-controls="panel-exports" aria-selected="false" tabindex="-1">Exports</button></nav>
+<div class="layout">
+<aside class="rail" aria-label="Parameters">
+<details id="parameter-details" open><summary class="parameter-summary">Filters</summary>
+<form id="cohort-form">
+<fieldset><legend class="sr-only">Cohort</legend>
+<label for="subclass">Subclass</label><select id="subclass" disabled><option>Subclass</option></select>
+<details class="disclosure" id="more-filters"><summary>More filters</summary><div class="disclosure-body">
+<label for="supertype">Supertype</label><select id="supertype" disabled><option value="">Any supertype</option></select>
+<label for="donor">Donor</label><select id="donor" disabled><option value="">Any donor</option></select>
+<details class="disclosure"><summary>Custom filter</summary><label for="extra-filters">JSON</label><textarea id="extra-filters" rows="3" spellcheck="false" placeholder='{"Sex": "Female"}'></textarea><p class="help">Metadata field names and scalar values. These override the controls above.</p></details>
+</div></details>
+<label class="checkline" for="exclude-reference"><input type="checkbox" id="exclude-reference" checked><span>Exclude reference</span><button type="button" class="help-button" data-tip="Exclude neurotypical reference cells." aria-label="About reference cells">?</button></label>
+</fieldset>
+<button type="submit" id="preview-button" class="button primary" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18h16M6 14V9m6 5V4m6 10v-7"/></svg>Apply</button>
+<div id="expression-controls" hidden>
+<div class="divider"></div><label for="genes">Genes <button type="button" class="help-button" data-tip="Up to 32 symbols, separated by commas or spaces." aria-label="Gene input format">?</button></label><textarea id="genes" rows="3" spellcheck="false"></textarea>
+<label for="layer">Layer</label><select id="layer" disabled><option>Layer</option></select>
+<button type="button" id="sample-button" class="button primary" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7Z"/></svg>Read</button>
+</div>
+</form></details>
+</aside>
+<main class="workspace" id="workspace">
+<div role="tabpanel" id="panel-cohort" aria-labelledby="tab-cohort">
+<div class="section-head"><h2>Cells by donor</h2><button type="button" class="help-button" data-tip="Bars share a linear scale. Exact cell counts are shown at right." aria-label="About donor counts">?</button></div>
+<div id="preview-state" class="state" role="status"></div>
+<div id="preview-content" hidden><div class="preview-summary"><strong id="cell-count">—</strong><span>cells</span><span class="summary-dot">·</span><strong id="donor-count">—</strong><span>donors</span></div><div class="table-wrap donor-wrap"><table class="donor-table"><caption class="sr-only">Matching cells by donor</caption><thead><tr><th>Donor</th><th><span class="sr-only">Relative cells</span></th><th class="numeric">Cells</th></tr></thead><tbody id="donor-rows"></tbody></table></div></div>
+</div>
+<div role="tabpanel" id="panel-expression" aria-labelledby="tab-expression" hidden>
+<div class="section-head"><h2>Expression</h2><button type="button" class="help-button" data-tip="First 24 matching cells in source order, not a representative sample." aria-label="About expression sampling">?</button></div>
+<div id="sample-state" class="state empty-state" role="status"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4Zm0 5h16M9 4v16m6-16v16M4 15h16"/></svg></div>
+<div id="sample-content" hidden><div class="sample-summary" id="sample-note"></div><div class="table-wrap"><table id="sample-table"><caption class="sr-only">Expression for first matching cells</caption><thead id="sample-head"></thead><tbody id="sample-rows"></tbody></table></div></div>
+</div>
+<div role="tabpanel" id="panel-exports" aria-labelledby="tab-exports" hidden>
+<div class="section-head"><h2>Export</h2><button type="button" class="help-button" data-tip="Export the selected cohort, genes and expression layer as AnnData. Uses source order." aria-label="About exports">?</button></div>
+<form id="export-form" class="export-form"><div><label for="limit">Cells</label><input id="limit" type="number" min="1" max="10000" step="1" value="1000" required></div><button class="button primary" id="export-button" type="submit" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M4 16v5h16v-5"/></svg>Export</button>
+<details class="disclosure export-options"><summary>Options</summary><label for="engine">Engine</label><select id="engine"><option value="scipy">SciPy</option><option value="rust">Rust</option></select><label class="checkline" for="donor-split"><input id="donor-split" type="checkbox"><span>Donor-disjoint split</span></label></details></form>
+<div class="jobs-heading"><h3>Files</h3><button type="button" class="icon-button" id="refresh-jobs" aria-label="Refresh exports" data-tip="Refresh"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"/></svg></button></div><div id="jobs-state" class="state" role="status" hidden></div><div id="jobs-list" class="jobs-list"></div>
+<details class="disclosure examples"><summary>Examples</summary><div id="files-list"></div></details>
+</div>
+</main>
+</div>
+</div>
+<div id="tooltip" role="tooltip" hidden></div>
+</body>
+</html>
